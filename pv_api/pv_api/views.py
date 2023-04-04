@@ -7,11 +7,12 @@ from django_filters.rest_framework import DjangoFilterBackend
 class StateViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = State.objects.all()
     serializer_class = StateSerializer
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = (DjangoFilterBackend,)
     filterset_fields = ['state']
     print(filterset_fields)
     print('hi')
 
     def get_queryset(self):
         states = State.objects.all()
-        return states  
+        filter_backends = self.filter_queryset(states)
+        return filter_backends  
