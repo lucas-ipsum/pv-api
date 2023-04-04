@@ -9,8 +9,6 @@ class StateViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = StateSerializer
     filter_backends = (DjangoFilterBackend,)
     filterset_fields = ['state']
-    print(filterset_fields)
-    print('hi')
 
     def get_queryset(self):
         states = State.objects.all()
