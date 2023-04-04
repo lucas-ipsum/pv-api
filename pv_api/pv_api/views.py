@@ -11,6 +11,12 @@ class StateViewSet(viewsets.ReadOnlyModelViewSet):
     filterset_fields = ['state']
 
     def get_queryset(self):
-        states = State.objects.all()
-        filter_backends = self.filter_queryset(states)
+        queryset = State.objects.all()
+        filter_backends = self.filter_queryset(queryset)
+
+        serializer = StateSerializer(filter_backends)
+        #return Response(serializer.data)
+        print(type(serializer))
+        #print(serializer['id'])
         return filter_backends  
+       # return serializer

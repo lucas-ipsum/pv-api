@@ -4,4 +4,4 @@ from .models import State
 class StateSerializer(serializers.ModelSerializer):
     class Meta: 
         model = State
-        fields = ['id', 'state', 'pv_yield']
+        fields = ['pv_yield', 'state']
