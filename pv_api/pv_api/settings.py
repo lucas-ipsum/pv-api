@@ -26,7 +26,8 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
+# Allowed Hosts: 
+ALLOWED_HOSTS = ['lucasipsum.pythonanywhere.com']
 
 # Application definition
 
